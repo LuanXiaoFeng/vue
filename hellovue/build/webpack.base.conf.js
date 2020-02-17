@@ -1,8 +1,11 @@
 'use strict'
 const path = require('path')
 const utils = require('./utils')
+const webpack = require('webpack')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+var PostCompilePlugin = require('webpack-post-compile-plugin')
+var TransformModulesPlugin = require('webpack-transform-modules-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -22,6 +25,14 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.config.SERVER_ENV': JSON.stringify(process.env.SERVER_ENV)
+    }),
+    // ...
+    new PostCompilePlugin(),
+    new TransformModulesPlugin()
+  ],
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {

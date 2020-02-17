@@ -10,7 +10,10 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "build:sit": "cross-env SERVER_ENV=SIT npm run build",
+    "build:uat": "cross-env SERVER_ENV=UAT npm run build",
+    "build:pro": "cross-env SERVER_ENV=PRO npm run build"
   },
   "dependencies": {
     "cssnano": "^4.1.10",
@@ -21,7 +24,9 @@
     "postcss-write-svg": "^3.0.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "vuex": "^3.1.1"
+    "vuex": "^3.1.1",
+    "webpack-post-compile-plugin": "^1.0.0",
+    "webpack-transform-modules-plugin": "^0.4.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -40,6 +45,7 @@
     "chalk": "^2.0.1",
     "chromedriver": "^2.27.2",
     "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^7.0.0",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.0",
     "cssnano-preset-advanced": "^4.0.7",
