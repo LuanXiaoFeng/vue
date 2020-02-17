@@ -16,12 +16,14 @@
     "build:pro": "cross-env SERVER_ENV=PRO npm run build"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "cssnano": "^4.1.10",
     "postcss-aspect-ratio-mini": "^1.0.1",
     "postcss-cssnext": "^3.1.0",
     "postcss-px-to-viewport": "^1.1.1",
     "postcss-viewport-units": "^0.1.6",
     "postcss-write-svg": "^3.0.1",
+    "qs": "^6.9.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.1.1",
